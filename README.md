@@ -140,7 +140,7 @@ Visit [http://localhost:5173](http://localhost:5173).
 | Service | URL |
 |---------|-----|
 | **Frontend** | [community-hero-ish-acdd9.web.app](https://community-hero-ish-acdd9.web.app) |
-| **Backend API** | [Deploy to Render](https://render.com) |
+| **Backend API** | [community-hero-8ozg.onrender.com](https://community-hero-8ozg.onrender.com) |
 
 ---
 
