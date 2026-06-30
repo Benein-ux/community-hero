@@ -107,7 +107,7 @@ export default function Home() {
     .map((i) => ({ ...i, ...jitterPosition(i.location.lat, i.location.lng, i.id) }));
 
   return (
-    <div className="relative h-[calc(100vh-3.5rem)] w-full">
+    <div className="h-[100dvh] md:h-[calc(100vh-3.5rem)] w-full">
       <MapContainer
         center={[20, 0]}
         zoom={2}
@@ -169,19 +169,19 @@ export default function Home() {
         ))}
       </MapContainer>
 
-      {/* FAB — Report Issue */}
+      {/* FAB — Report Issue (fixed to viewport, never obscured by scroll) */}
       <Link
         to="/report"
-        className="absolute bottom-24 md:bottom-6 right-6 z-[1000] flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-bright)] text-white rounded-2xl px-5 py-3 font-medium text-sm shadow-[0_0_0_1px_rgba(94,106,210,0.5),0_4px_16px_rgba(94,106,210,0.4),inset_0_1px_0_0_rgba(255,255,255,0.15)] hover:shadow-[0_0_0_1px_rgba(94,106,210,0.6),0_8px_24px_rgba(94,106,210,0.5),inset_0_1px_0_0_rgba(255,255,255,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
+        className="fixed bottom-24 md:bottom-6 right-4 md:right-6 z-[1000] flex items-center gap-2 bg-[var(--accent)] hover:bg-[var(--accent-bright)] text-white rounded-2xl px-5 py-3 font-medium text-sm shadow-[0_0_0_1px_rgba(94,106,210,0.5),0_4px_16px_rgba(94,106,210,0.4),inset_0_1px_0_0_rgba(255,255,255,0.15)] hover:shadow-[0_0_0_1px_rgba(94,106,210,0.6),0_8px_24px_rgba(94,106,210,0.5),inset_0_1px_0_0_rgba(255,255,255,0.15)] transition-all duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98]"
       >
         <Plus size={20} />
         <span className="hidden sm:inline">Report Issue</span>
       </Link>
 
-      {/* Refresh Button */}
+      {/* Refresh Button (fixed to viewport) */}
       <button
         onClick={fetchIssues}
-        className="absolute bottom-24 md:bottom-6 left-6 z-[1000] flex items-center justify-center w-12 h-12 bg-[#0a0a0c]/90 backdrop-blur-xl border border-white/[0.08] text-[var(--fg-muted)] rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_4px_16px rgba(0,0,0,0.4)] hover:bg-[#0a0a0c] hover:text-[var(--fg)] hover:border-white/[0.12] transition-all duration-200 ease-out active:scale-95"
+        className="fixed bottom-24 md:bottom-6 left-4 md:left-6 z-[1000] flex items-center justify-center w-12 h-12 bg-[#0a0a0c]/90 backdrop-blur-xl border border-white/[0.08] text-[var(--fg-muted)] rounded-2xl shadow-[0_0_0_1px_rgba(255,255,255,0.04),0_4px_16px_rgba(0,0,0,0.4)] hover:bg-[#0a0a0c] hover:text-[var(--fg)] hover:border-white/[0.12] transition-all duration-200 ease-out active:scale-95"
         title="Refresh Map"
       >
         <RotateCcw size={18} />

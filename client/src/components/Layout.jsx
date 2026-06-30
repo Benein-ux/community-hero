@@ -138,8 +138,8 @@ export default function Layout() {
     <div className="min-h-screen text-[var(--fg)]">
       <AmbientBackground />
 
-      {/* Header — z-[1000] to sit above Leaflet maps */}
-      <header className="fixed top-0 left-0 right-0 z-[1000]">
+      {/* Header — hidden on mobile (bottom nav handles everything), visible md+ */}
+      <header className="hidden md:block fixed top-0 left-0 right-0 z-[1000]">
         <div className="backdrop-blur-2xl bg-[#050506]/70 border-b border-white/[0.04]">
           <div className="flex h-14 items-center px-4 sm:px-6 lg:px-8 max-w-[1800px] mx-auto">
             {/* Logo — far left */}
@@ -156,7 +156,7 @@ export default function Layout() {
             <div className="flex-1" />
 
             {/* Nav — right-aligned */}
-            <nav className="hidden md:flex items-center gap-1" aria-label="Main navigation">
+            <nav className="flex items-center gap-1" aria-label="Main navigation">
               {NAV_ITEMS.map((item) => (
                 <NavLink
                   key={item.to}
@@ -170,10 +170,10 @@ export default function Layout() {
             </nav>
 
             {/* Divider */}
-            <div className="hidden md:block w-px h-5 bg-white/[0.06] mx-3" />
+            <div className="w-px h-5 bg-white/[0.06] mx-3" />
 
-            {/* User — far right (hidden on mobile, bottom nav handles it) */}
-            <div className="relative hidden md:block">
+            {/* User — far right */}
+            <div className="relative">
               {user ? (
                 <>
                   <button
@@ -207,8 +207,8 @@ export default function Layout() {
         </div>
       </header>
 
-      {/* Main Content — pt-14 for header, pb-20 for mobile bottom nav */}
-      <main className="min-h-screen pt-14 pb-20 md:pb-0">
+      {/* Main Content — pt-14 for desktop header, pb-20 for mobile bottom nav */}
+      <main className="min-h-screen pt-0 md:pt-14 pb-20 md:pb-0">
         <div
           className={`transition-opacity duration-150 ease-out ${transitioning ? 'opacity-0' : 'opacity-100'}`}
         >

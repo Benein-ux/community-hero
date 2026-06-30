@@ -70,12 +70,14 @@ export default function AmbientBackground() {
             style={{
               width: blob.size,
               height: blob.size,
-              top: blob.top,
-              left: blob.left,
+              top: 0,
+              left: 0,
+              transform: `translate(${blob.left === '-300px' ? '-300px' : blob.left === '60%' ? '60vw' : '10vw'}, ${blob.top})`,
               filter: `blur(${blob.blur})`,
               opacity: blob.opacity,
               background: `radial-gradient(circle at center, var(--accent) 0%, transparent 70%)`,
               animation: `float ${blob.duration} ease-in-out infinite ${blob.delay}`,
+              willChange: 'transform',
             }}
           />
         ))}
