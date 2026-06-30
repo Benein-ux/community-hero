@@ -46,6 +46,18 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior: none;
+}
+
+@supports (overflow-clip: auto) {
+  * {
+    will-change: auto;
+  }
+}
+
 body {
   background: var(--bg-base);
   color: var(--fg);

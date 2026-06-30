@@ -172,8 +172,8 @@ export default function Layout() {
             {/* Divider */}
             <div className="hidden md:block w-px h-5 bg-white/[0.06] mx-3" />
 
-            {/* User — far right */}
-            <div className="relative">
+            {/* User — far right (hidden on mobile, bottom nav handles it) */}
+            <div className="relative hidden md:block">
               {user ? (
                 <>
                   <button
@@ -207,8 +207,8 @@ export default function Layout() {
         </div>
       </header>
 
-      {/* Main Content — pt-14 for header, full width */}
-      <main className="min-h-screen pt-14">
+      {/* Main Content — pt-14 for header, pb-20 for mobile bottom nav */}
+      <main className="min-h-screen pt-14 pb-20 md:pb-0">
         <div
           className={`transition-opacity duration-150 ease-out ${transitioning ? 'opacity-0' : 'opacity-100'}`}
         >
